@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Grupo VIP Finder Travel — Receba promoções exclusivas de passagens aéreas antes de todo mundo. Acesso gratuito."/>
+<meta property="og:title" content="Grupo VIP — Finder Travel ✈"/>
+<meta property="og:description" content="Promoções de passagens aéreas em primeira mão. Entre grátis agora."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#6d28d9"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%236d28d9'/%3E%3Cpath d='M44 20L28 36l-8-8-4 4 12 12 20-20z' fill='none' stroke='%23c8ff00' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20 44 Q32 20 44 20' fill='none' stroke='%23c8ff00' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"/>
+<title>Grupo VIP — Finder Travel ✈</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--p1:#6d28d9;--p2:#4c1d95;--p3:#2e1065;--p4:#7c3aed;--pl:#c4b5fd;--green:#c8ff00;--white:#fff;--tb:rgba(255,255,255,.95);--tf:rgba(255,255,255,.5);--cb:rgba(255,255,255,.07);--cbr:rgba(255,255,255,.15)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Open Sans',sans-serif;background:#020818;color:var(--tb);overflow-x:hidden;font-size:15px;line-height:1.7;min-height:100vh}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--p3)}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px}
+
+/* MARQUEE */
+.mq{background:var(--green);overflow:hidden;padding:9px 0;position:fixed;top:0;left:0;right:0;z-index:1001;-webkit-mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent);mask-image:linear-gradient(90deg,transparent,black 10%,black 90%,transparent)}
+.mq-t{display:flex;width:max-content;animation:mqs 22s linear infinite}
+.mq-t span{font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--p3);padding:0 26px;white-space:nowrap}
+.mq-t span::after{content:' ✈'}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* NAV */
+.nb{position:fixed;top:46px;left:50%;transform:translateX(-50%);z-index:1000;display:flex;align-items:center;justify-content:space-between;width:min(1080px,94vw);padding:14px 24px;background:rgba(76,29,149,.85);backdrop-filter:blur(20px);border:1px solid rgba(196,181,253,.3);border-radius:100px;transition:all .3s}
+.nb.s{background:rgba(46,16,101,.97);border-color:rgba(200,255,0,.4);box-shadow:0 8px 40px rgba(0,0,0,.35)}
+.nb-logo{font-family:'Open Sans',sans-serif;font-weight:800;font-size:15px;color:var(--green)}
+.nb-back{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);transition:color .2s}
+.nb-back:hover{color:var(--green)}
+.nb-btn{background:var(--green);color:var(--p3);font-weight:700;font-size:12px;padding:11px 24px;border-radius:100px;transition:transform .25s,box-shadow .25s;white-space:nowrap}
+.nb-btn:hover{transform:scale(1.05);box-shadow:0 0 24px rgba(200,255,0,.5)}
+
+/* BG */
+.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-glow::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.3) 0%,transparent 70%);top:-200px;left:-150px}
+.bg-glow::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(200,255,0,.08) 0%,transparent 70%);bottom:-100px;right:-100px}
+.bg-dots{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle,rgba(196,181,253,.12) 1px,transparent 1px);background-size:36px 36px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%)}
+
+/* HERO */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(200,255,0,.15);border:1px solid rgba(200,255,0,.4);border-radius:100px;padding:8px 20px;font-size:11px;font-weight:700;color:var(--green);letter-spacing:.07em;text-transform:uppercase;margin-bottom:28px}
+.pill-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(44px,8vw,90px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase;color:var(--white);margin-bottom:10px}
+.hero-title .ac{color:var(--green)}
+.hero-sub{font-size:clamp(15px,4vw,18px);color:var(--tb);line-height:1.8;max-width:500px;margin:0 auto 44px}
+
+/* CTA BUTTON */
+.btn-wpp{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;font-family:'Open Sans',sans-serif;font-weight:800;font-size:16px;letter-spacing:.04em;padding:20px 44px;border-radius:100px;transition:all .3s;box-shadow:0 8px 40px rgba(37,211,102,.35);position:relative;overflow:hidden}
+.btn-wpp:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 18px 56px rgba(37,211,102,.5)}
+.btn-wpp::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:shine 2.5s ease-in-out infinite}
+@keyframes shine{0%,70%{left:-100%}100%{left:200%}}
+.btn-wpp svg{width:24px;height:24px;fill:#fff;flex-shrink:0}
+.btn-note{margin-top:14px;font-size:12px;color:var(--tf);letter-spacing:.05em}
+
+/* BENEFITS */
+.section{position:relative;z-index:1;padding:80px 0}
+.wrap{width:100%;max-width:1000px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.sec-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.sec-title{font-family:'Open Sans',sans-serif;font-weight:800;font-size:clamp(24px,5vw,44px);line-height:1.15;letter-spacing:-.02em;text-transform:uppercase;color:var(--white);margin-bottom:14px}
+.sec-title .g{color:var(--green)}
+.sec-desc{font-size:15px;color:var(--tb);line-height:1.8;max-width:520px}
+
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.benefit-card{background:var(--cb);border:1px solid var(--cbr);border-radius:20px;padding:30px 24px;transition:all .3s;position:relative;overflow:hidden}
+.benefit-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,255,0,.04) 0%,transparent 60%);opacity:0;transition:opacity .3s}
+.benefit-card:hover{transform:translateY(-8px);border-color:rgba(200,255,0,.35);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.benefit-card:hover::before{opacity:1}
+.benefit-icon{width:52px;height:52px;border-radius:14px;background:rgba(200,255,0,.1);border:1px solid rgba(200,255,0,.25);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.benefit-title{font-family:'Open Sans',sans-serif;font-weight:800;font-size:15px;color:var(--white);text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px;line-height:1.2}
+.benefit-desc{font-size:13px;color:var(--tb);line-height:1.75}
+
+/* PROOF */
+.proof-bar{position:relative;z-index:1;padding:48px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.proof-inner{display:flex;align-items:center;justify-content:center;gap:60px;flex-wrap:wrap}
+.proof-item{text-align:center}
+.proof-num{font-family:'Open Sans',sans-serif;font-weight:800;font-size:38px;color:var(--green);line-height:1;text-shadow:0 0 24px rgba(200,255,0,.4)}
+.proof-label{font-size:11px;font-weight:600;color:var(--tb);letter-spacing:.05em;text-transform:uppercase;margin-top:6px}
+.proof-div{width:1px;height:48px;background:rgba(255,255,255,.12)}
+
+/* HOW IT WORKS */
+.steps{display:flex;flex-direction:column;gap:16px;margin-top:48px;max-width:600px;margin-left:auto;margin-right:auto}
+.step{display:flex;align-items:flex-start;gap:20px;background:var(--cb);border:1px solid var(--cbr);border-radius:16px;padding:22px 24px;transition:all .3s}
+.step:hover{border-color:rgba(200,255,0,.3);background:rgba(200,255,0,.05);transform:translateX(8px)}
+.step-num{width:40px;height:40px;border-radius:12px;background:var(--green);color:var(--p3);font-family:'Open Sans',sans-serif;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-title{font-weight:700;font-size:14px;color:var(--white);margin-bottom:4px}
+.step-desc{font-size:13px;color:var(--tb);line-height:1.6}
+
+/* FINAL CTA */
+.final-cta{position:relative;z-index:1;padding:80px 24px;text-align:center;background:linear-gradient(135deg,var(--p2) 0%,var(--p1) 50%,var(--p2) 100%)}
+.final-cta-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,5vw,56px);letter-spacing:-.02em;text-transform:uppercase;color:var(--white);margin-bottom:14px;line-height:1.1}
+.final-cta-title .g{color:var(--green)}
+.final-cta-sub{font-size:16px;color:var(--tb);margin-bottom:36px;line-height:1.8}
+
+/* FOOTER */
+.footer{position:relative;z-index:1;background:rgba(20,5,50,.97);border-top:3px solid var(--green);padding:32px 24px;text-align:center}
+.footer-logo{font-family:'Open Sans',sans-serif;font-weight:800;font-size:16px;color:var(--green);margin-bottom:8px}
+.footer-text{font-size:12px;color:var(--tf);letter-spacing:.04em}
+.footer-link{color:var(--pl);text-decoration:underline;transition:color .2s}
+.footer-link:hover{color:var(--green)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nb-back span{display:none}
+  .benefits-grid{grid-template-columns:1fr}
+  .proof-div{width:40px;height:1px}
+  .proof-inner{gap:32px}
+}
+@media(max-width:600px){
+  .benefits-grid{grid-template-columns:1fr}
+  .nb{padding:12px 18px;width:calc(100% - 32px)}
+}
+</style>
+</head>
+<body>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-t">
+    <span>Promoções Exclusivas</span>
+    <span>Passagens Aéreas</span>
+    <span>Grupo VIP Gratuito</span>
+    <span>Ofertas em Primeira Mão</span>
+    <span>Finder Travel</span>
+    <span>Promoções Exclusivas</span>
+    <span>Passagens Aéreas</span>
+    <span>Grupo VIP Gratuito</span>
+    <span>Ofertas em Primeira Mão</span>
+    <span>Finder Travel</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nb" id="nb">
+  <a href="/" class="nb-logo">FINDER TRAVEL</a>
+  <a href="/" class="nb-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    <span>Voltar ao site</span>
+  </a>
+  <a href="https://chat.whatsapp.com/BAOn6vwtKeUGusycE5pGzQ?mode=gi_t" target="_blank" rel="noopener" class="nb-btn">Entrar no Grupo</a>
+</nav>
+
+<!-- BG -->
+<div class="bg-glow"></div>
+<div class="bg-dots"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="pill">
+    <span class="pill-dot"></span>
+    #1 Grupo de Promoções de Passagens
+  </div>
+  <h1 class="hero-title">GRUPO<br><span class="ac">VIP</span></h1>
+  <p class="hero-sub">Receba as melhores promoções de passagens aéreas antes de todo mundo — direto no seu WhatsApp. Acesso <strong>100% gratuito.</strong></p>
+  <a href="https://chat.whatsapp.com/BAOn6vwtKeUGusycE5pGzQ?mode=gi_t" target="_blank" rel="noopener" class="btn-wpp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Entrar no Grupo Agora
+  </a>
+  <p class="btn-note">Gratuito · Sem spam · Saia quando quiser</p>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="proof-inner">
+    <div class="proof-item">
+      <div class="proof-num">3.000+</div>
+      <div class="proof-label">Membros Ativos</div>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <div class="proof-num">Diárias</div>
+      <div class="proof-label">Promoções Enviadas</div>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <div class="proof-num">100%</div>
+      <div class="proof-label">Gratuito</div>
+    </div>
+    <div class="proof-div"></div>
+    <div class="proof-item">
+      <div class="proof-num">5★</div>
+      <div class="proof-label">Avaliação no Google</div>
+    </div>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<section class="section">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:8px">
+      <span class="sec-tag">O que você recebe</span>
+    </div>
+    <h2 class="sec-title" style="text-align:center;max-width:640px;margin:0 auto 12px">BENEFÍCIOS DO <span class="g">GRUPO VIP</span></h2>
+    <p class="sec-desc" style="text-align:center;margin:0 auto">Tudo que você precisa para viajar pagando menos — entregue direto no seu WhatsApp.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">✈️</div>
+        <div class="benefit-title">Passagens em Promoção</div>
+        <div class="benefit-desc">As melhores tarifas nacionais e internacionais, enviadas em primeira mão antes de esgotar.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <div class="benefit-title">Alertas em Tempo Real</div>
+        <div class="benefit-desc">Notificações imediatas quando surgem promoções relâmpago — você é o primeiro a saber.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌍</div>
+        <div class="benefit-title">Destinos Nacionais e Internacionais</div>
+        <div class="benefit-desc">Promoções para todo o Brasil e para o mundo inteiro. Escolha o destino dos seus sonhos.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💬</div>
+        <div class="benefit-title">Suporte Especializado</div>
+        <div class="benefit-desc">Nossa equipe disponível para tirar dúvidas e ajudar você a garantir a melhor oferta.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔒</div>
+        <div class="benefit-title">100% Gratuito</div>
+        <div class="benefit-desc">Sem mensalidade, sem taxa de adesão. Entre gratuitamente e saia quando quiser.</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <div class="benefit-title">Curadoria Manual</div>
+        <div class="benefit-desc">Cada promoção é verificada pela nossa equipe. Só enviamos o que realmente vale a pena.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:8px">
+      <span class="sec-tag">Como funciona</span>
+    </div>
+    <h2 class="sec-title" style="text-align:center;max-width:500px;margin:0 auto">3 PASSOS <span class="g">SIMPLES</span></h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Clique no botão de entrar no grupo</div>
+          <div class="step-desc">Aperte o botão verde aqui da página e você será redirecionado ao grupo oficial da Finder Travel no WhatsApp.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Aceite o convite no WhatsApp</div>
+          <div class="step-desc">Confirme sua entrada no grupo. É só um clique — nenhum dado seu é solicitado.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Receba promoções todos os dias</div>
+          <div class="step-desc">Fique de olho no grupo. Assim que uma promoção chegar, é só acessar o link e garantir a passagem.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2 class="final-cta-title">PRONTO PARA <span class="g">VIAJAR</span> MAIS?</h2>
+  <p class="final-cta-sub">Entre agora e comece a receber promoções de passagens direto no seu WhatsApp.</p>
+  <a href="https://chat.whatsapp.com/BAOn6vwtKeUGusycE5pGzQ?mode=gi_t" target="_blank" rel="noopener" class="btn-wpp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Entrar no Grupo Gratuitamente
+  </a>
+  <p class="btn-note" style="margin-top:14px;font-size:12px;color:rgba(255,255,255,.5);letter-spacing:.05em">Gratuito · Sem spam · Saia quando quiser</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">FINDER TRAVEL</div>
+  <p class="footer-text">
+    © 2025 Finder Travel · Todos os direitos reservados ·
+    <a href="/" class="footer-link">Voltar ao site</a>
+  </p>
+</footer>
+
+<script>
+  // Navbar scroll
+  const nb = document.getElementById('nb');
+  window.addEventListener('scroll', () => {
+    nb.classList.toggle('s', window.scrollY > 40);
+  }, { passive: true });
+</script>
+</body>
+</html>
